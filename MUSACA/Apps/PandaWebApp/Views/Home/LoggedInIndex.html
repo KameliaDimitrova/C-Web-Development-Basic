@@ -1,0 +1,49 @@
+﻿<form class="mx-auto w-50" method="post" action="/Home/Index">
+    <div class="price-and-barcode d-flex justify-content-between">
+        <div class="form-group w-50 ml-3">
+            <div class="d-flex justify-content-center">
+                <label for="barcode" class="text-musaca font-weight-bold"></label>
+            </div>
+            <input type="number" class="form-control" id="barcode" placeholder="Barcode..." name="barcode">
+        </div>
+        <div class="form-group w-50 mr-3">
+            <div class="d-flex justify-content-center">
+                <label for="quantity" class="text-musaca font-weight-bold"></label>
+            </div>
+            <input type="number" class="form-control" id="quantity" placeholder="Quantity..." name="quantity">
+        </div>
+        <div class="button-holder d-flex justify-content-center">
+            <button type="submit" class="btn bg-musaca text-white">Order</button>
+        </div>
+    </div>
+
+    
+    <hr class="bg-musaca hr-2" />
+
+    <div class="mx-auto">
+        <div class="receipt-id-handler d-flex justify-content-between">
+            <h3>Product Name</h3>
+            <h3>Quantity</h3>
+            <h3>Price</h3>
+        </div>
+        <hr class="bg-musaca hr-2" />
+        @foreach(var order in Model.Orders)
+        {
+        <div class="receipt-id-handler d-flex justify-content-between">
+          
+            <h4>@order.Name</h4>
+            <h4>x@order.Quantity</h4>
+            <h4>$@order.Price</h4>
+         
+        </div>
+        }
+        <hr class="bg-musaca hr-2" />
+
+        <div class="receipt-id-handler d-flex justify-content-between">
+            <a href="/Receipts/Cashout" class="btn bg-musaca text-white">Cashout</a>
+            <div class="fee-holder d-flex justify-content-end">
+                <h3>Total: $@Model.Total</h3>
+            </div>
+        </div>
+    </div>
+</form>

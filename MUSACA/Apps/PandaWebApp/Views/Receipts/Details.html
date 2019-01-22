@@ -1,0 +1,35 @@
+﻿<h1 class="text-center text-musaca">Register</h1>
+<hr class="bg-musaca w-50 hr-2" />
+<div class="mx-auto">
+    <div class="receipt-id-handler d-flex justify-content-between">
+        @foreach(var order in Model.Orders)
+        {
+        <h4>@order.Name:</h4>
+        <h4>x@order.Quantity</h4>
+        <h4>$@order.Price</h4>
+        }
+    </div>
+    <hr class="bg-musaca w-50 hr-2" />
+
+    <div class="fee-holder d-flex justify-content-end">
+        <h3>Total: @Model.Total</h3>
+    </div>
+
+    <hr class="bg-musaca w-50 hr-2" />
+
+    <div class="fee-holder d-flex justify-content-end">
+        <h3>Total: @Model.IssuedOn</h3>
+    </div>
+
+    <hr class="bg-musaca w-50 hr-2" />
+    <div class="fee-holder d-flex justify-content-end">
+        <h3>Total: @Model.Cashier</h3>
+    </div>
+
+    <hr class="bg-musaca w-50 hr-2" />
+    <div class="fee-holder d-flex justify-content-end">
+        <h3>Total: @Model.Receipt</h3>
+    </div>
+
+   
+</div>

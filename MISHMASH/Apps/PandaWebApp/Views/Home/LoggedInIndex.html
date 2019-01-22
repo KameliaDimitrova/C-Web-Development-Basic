@@ -1,0 +1,81 @@
+﻿@if (Model.UserRole == "Admin")
+{
+<h1 class="text-center text-mishmash">Welcome, Admin-@User.Username!</h1>
+}
+@else
+{
+<h1 class="text-center text-mishmash">Welcome, @User.Username!</h1>
+}
+
+<div class="container-fluid">
+    <h2 class="text-mishmash mt-2">Your channels</h2>
+    <hr class="bg-mishmash w-100 hr-2" />
+
+
+    <div class="row justify-content-left">
+        @foreach(var channel in Model.YourChannels)
+        {
+        <div class="mr-5 mt-3 col-lg-2 col-sm-12 col-md-4">
+            <div class="card-body rounded bg-mishmash text-white">
+                <p class="card-title text-center">@channel.Name</p>
+                <hr class="bg-white w-75 hr-2" />
+                <p class="card-subtitle mb-2 text-center">@channel.Type</p>
+                <hr class="bg-white w-75 hr-2" />
+                <p class="card-text text-center">@channel.FollowersCount Followers</p>
+                <hr class="bg-white w-75 hr-2" />
+                <div class="text-center">
+                    <p class="card-link nav-link-white">Following</p>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    
+    <h2 class="text-mishmash mt-2">Suggested</h2>
+    <hr class="bg-mishmash w-100 hr-2" />
+
+    <div class="row justify-content-left">
+        @foreach(var channel in Model.SuggestedChannels)
+        {
+        <div class="mr-5 mt-3 col-lg-2 col-sm-12 col-md-4">
+            <div class="card-body rounded bg-mishmash text-white">
+                <p class="card-title text-center">@channel.Name</p>
+                <hr class="bg-white w-75 hr-2" />
+                <p class="card-subtitle mb-2 text-center">@channel.Type</p>
+                <hr class="bg-white w-75 hr-2" />
+                <p class="card-text text-center">@channel.FollowersCount Followers</p>
+                <hr class="bg-white w-75 hr-2" />
+                <div class="text-center">
+                    <a href="Channel/Follow?id=@channel.Id" class="card-link nav-link-white">Follow</a>
+                    <a href="Channel/Details?id=@channel.Id" class="card-link nav-link-white">Details</a>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+
+    
+    <h2 class="text-mishmash mt-2">See other</h2>
+    <hr class="bg-mishmash w-100 hr-2" />
+
+    <div class="row mb-5 justify-content-left">
+        @foreach(var channel in Model.SeeOtherChannels)
+        {
+        <div class="mr-5 mt-3 col-lg-2 col-sm-12 col-md-4">
+            <div class="card-body rounded bg-mishmash text-white">
+                <p class="card-title text-center">@channel.Name</p>
+                <hr class="bg-white w-75 hr-2" />
+                <p class="card-subtitle mb-2 text-center">@channel.Type</p>
+                <hr class="bg-white w-75 hr-2" />
+                <p class="card-text text-center">@channel.FollowersCount Followers</p>
+                <hr class="bg-white w-75 hr-2" />
+                <div class="text-center">
+                    <a href="Channel/Follow?id=@channel.Id" class="card-link nav-link-white">Follow</a>
+                    <a href="Channel/Details?id=@channel.Id" class="card-link nav-link-white">Details</a>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    
+</div>
